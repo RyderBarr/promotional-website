@@ -1,17 +1,67 @@
-const express = require('express')
-const path = require('path')
+import express from 'express'
+import path from 'path'
+import { fileURLToPath } from 'url'
+import {ensureDateFile, listStudents, addStudent} from './utils/students.js'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
 const app = express()
+const PORT = 5500
 
-// mis=ddleware to seve static files()
-// middleware is a function thay sits berwenn the request from the client and the response frim the server
-// think of it as a gatekeepr or pipeline every request passes through a chain of middleware function before reaching the final route
+// Middleware
 
-app.use(express.static(path.join(__dirname,'public')))
+app.use(express.urlencoded({extended:true}))
+app.use(express.json())
 
-app.get('/', (req,res)=>{res.sendFile(path.join(__dirname, 'public', 'index'))})
+// static Folder
 
-app.get((req,res)=>{
-    res.sendFile(path.join(__dirname,'public','404.html'))
+app.use(express.static(path.join(__dirname,"public")))
+
+ensureDateFile()//makes sure the data file(students.json) exists when the project boots
+
+// Routes
+
+app.get('/appi/student', async(req,res,next)=>{
+
+        try{
+                const student = await listStudents()
+                res.status(200).json({count:student.length, students})
+        }catch(err)
+        {
+                next(err)
+        }
+
 })
 
-app.listen(5000,()=>{console.log(`server is running on http://localhost:5000`)})
+// API Routes
+
+app.post("/api/students", async(req,res,next)=>
+{
+        try
+        {
+
+                const data = req.body
+                const created = await addStudent(data)
+                res.status(201).json({message:"Student Added",student:created})
+
+        } catch (err) 
+        {
+
+                next(err)
+        
+        }
+})
+
+// 404
+app.use((req,res)=>{
+
+        res.status(404).json({message:"page not found"})
+
+})
+
+app.listen(PORT,()=>{
+
+        console.log(`server running on http://localhost:${PORT}`)
+
+})
