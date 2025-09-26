@@ -37,10 +37,10 @@ function dataValidation(input)
 {
         const errors = []
 
-        const firstName = String(input.firstName || "").trim()
-        const lastName = String(input.lastName || "").trim()
+        const firstName = String(input.first || "").trim()
+        const lastName = String(input.last || "").trim()
         const email = String(input.email || "").trim()
-        const gradelevel = String(input.gradeleve || "").trim()
+        const gradelevel = String(input.gradeLevel || "").trim()
 
         if(!firstName) errors.push("first Name Required")
         if(!lastName) errors.push("last Name Required")

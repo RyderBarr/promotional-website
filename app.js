@@ -22,17 +22,17 @@ ensureDateFile()//makes sure the data file(students.json) exists when the projec
 
 // Routes
 
-app.get('/appi/student', async(req,res,next)=>{
+// app.get('/appi/student', async(req,res,next)=>{
 
-        try{
-                const student = await listStudents()
-                res.status(200).json({count:student.length, students})
-        }catch(err)
-        {
-                next(err)
-        }
+//         try{
+//                 const student = await listStudents()
+//                 res.status(200).json({count:student.length, students})
+//         }catch(err)
+//         {
+//                 next(err)
+//         }
 
-})
+// })
 
 // API Routes
 
