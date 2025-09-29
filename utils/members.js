@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 const folder = path.join(__dirname,'..','data')
-const file = path.join(folder,"students.json")
+const file = path.join(folder,"members.json")
 
 
 export async function ensureDateFile()
@@ -19,8 +19,8 @@ export async function ensureDateFile()
         }
 }
 
-// read all students
-export async function listStudents(){
+// read all members
+export async function listMembers(){
         const rawData = await fs.readFile(file,"utf-8")
         try {
                 return JSON.parse(rawData)
@@ -32,28 +32,25 @@ export async function listStudents(){
         }
 }
 
-// validata dat
-function dataValidation(input)
+// validata data
+export function dataValidation(input)
 {
         const errors = []
 
-        const firstName = String(input.first || "").trim()
-        const lastName = String(input.last || "").trim()
+        const name = String(input.name || "").trim()
         const email = String(input.email || "").trim()
-        const gradelevel = String(input.gradeLevel || "").trim()
+        const newsLetter = String(input.newsLetter || "").trim()
 
-        if(!firstName) errors.push("first Name Required")
-        if(!lastName) errors.push("last Name Required")
+        if(!name) errors.push("first Name Required")
         if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/) errors.push("vaid email is required")
-        if(!Number.isFinite(gradelevel)) errors.push("grade level must be a number between 9 and 12")
+
 
         const capitalize = (s) => s.charAt(0).toUpperCase() + s.slice(1).toLowerCase()
 
         return{
-                firstName:capitalize(firstName),
-                lastName:capitalize(lastName),
+                name:capitalize(name),
                 email:email.toLowerCase(),
-                gradelevel:gradelevel
+                newsLetter:newsLetter
         }
 
 }
@@ -66,21 +63,20 @@ function getID()
 
 }
 
-// add Student
-export async function addStudent(input){
+// add member
+export async function addmember(input){
 
         const cleanData = dataValidation(input)
 
-        const newStudent={
+        const newMember={
                 id:Date.now().toString(36),
                 ...cleanData,
-                fullName: `${cleanData.firstName} ${cleanData.lastName}`,
                 createdAt: new Date().toISOString()
         }
 
-        const students = await listStudents()
-        students.push(newStudent)
-        await fs.writeFile(file, JSON.stringify(students,null,2), "utf-8")
-        return newStudent
+        const members = await listMembers()
+        members.push(newMember)
+        await fs.writeFile(file, JSON.stringify(members,null,2), "utf-8")
+        return newMember
         
 }

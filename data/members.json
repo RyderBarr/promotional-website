@@ -1,0 +1,16 @@
+[
+  {
+    "id": "mg3hsmqu",
+    "name": "Ryder",
+    "email": "ryderbarr2008@gmail.com",
+    "newsLetter": "on",
+    "createdAt": "2025-09-28T09:23:35.334Z"
+  },
+  {
+    "id": "mg4eoy11",
+    "name": "John",
+    "email": "johndoe3@gmail.com",
+    "newsLetter": "true",
+    "createdAt": "2025-09-29T00:44:30.661Z"
+  }
+]
