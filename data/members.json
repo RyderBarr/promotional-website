@@ -1,23 +1,19 @@
 [
   {
-    "id": "mg3hsmqu",
+    "id": "mg5omxk7",
     "name": "Ryder",
-    "email": "ryderbarr2008@gmail.com",
+    "password": "rbbar271",
+    "email": "rbbar271@learner.dvusd.org",
     "newsLetter": "on",
-    "createdAt": "2025-09-28T09:23:35.334Z"
+    "createdAt": "2025-09-29T22:10:39.079Z",
+    "admin":"true"
   },
   {
-    "id": "mg4eoy11",
-    "name": "John",
-    "email": "johndoe3@gmail.com",
-    "newsLetter": "true",
-    "createdAt": "2025-09-29T00:44:30.661Z"
-  },
-  {
-    "id": "mg4ju4sq",
-    "name": "Ryder",
-    "email": "ryderbarr2008@gmail.com",
-    "newsLetter": "",
-    "createdAt": "2025-09-29T03:08:30.794Z"
+    "id": "mg5p3tox",
+    "name": "barr",
+    "password": "rbbar271",
+    "email": "rbbar271@learner.dvusd.org",
+    "newsLetter": "on",
+    "createdAt": "2025-09-29T22:23:47.217Z"
   }
 ]

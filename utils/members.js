@@ -11,46 +11,72 @@ const file = path.join(folder,"members.json")
 
 export async function ensureDateFile()
 {
-        try {
+
+        try 
+        {
+        
                 await fs.mkdir(folder, {recursive:true})
                 await fs.access(file)
-        } catch{
+        
+        } 
+        catch
+        {
+
                await fs.writeFile(file, "[]","utf-8") 
+        
         }
+
 }
 
 // read all members
-export async function listMembers(){
+export async function listMembers()
+{
+
         const rawData = await fs.readFile(file,"utf-8")
-        try {
+        
+        try 
+        {
+
                 return JSON.parse(rawData)
-        } catch (err) {
+        
+        }
+        catch (err) 
+        {
+
                 console.error(err)
+                
                 // in case file gone or corrupt
                 await fs.writeFile(file,"[]","utf-8")
                 return []
+        
         }
+
 }
 
 // validata data
 export function dataValidation(input)
 {
+
         const errors = []
 
         const name = String(input.name || "").trim()
+        const password = String(input.password || "").trim()
         const email = String(input.email || "").trim()
         const newsLetter = String(input.newsLetter || "").trim()
 
         if(!name) errors.push("first Name Required")
         if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/) errors.push("vaid email is required")
-
+        if(!password || !password.match(/\w\d/) || !password.match(/.{8,}/)) errors.push("password is required")
 
         const capitalize = (s) => s.charAt(0).toUpperCase() + s.slice(1).toLowerCase()
 
         return{
+
                 name:capitalize(name),
+                password:password,
                 email:email.toLowerCase(),
                 newsLetter:newsLetter
+        
         }
 
 }
