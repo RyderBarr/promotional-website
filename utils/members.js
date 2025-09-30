@@ -81,6 +81,29 @@ export function dataValidation(input)
 
 }
 
+// validata data
+export function getDataValidation(input)
+{
+
+        const errors = []
+
+        const name = String(input.name || "").trim()
+        const password = String(input.password || "").trim()
+
+        if(!name) errors.push("first Name Required")
+        if(!password || !password.match(/\w\d/) || !password.match(/.{8,}/)) errors.push("password is required")
+
+        const capitalize = (s) => s.charAt(0).toUpperCase() + s.slice(1).toLowerCase()
+
+        return{
+
+                name:capitalize(name),
+                password:password,
+
+        }
+
+}
+
 // Gen ID
 function getID()
 {

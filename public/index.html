@@ -3,22 +3,21 @@
 <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>express forms</title>
         <link rel="stylesheet" href="./style/test.css">
         <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
 
 </head>
-<body class="">
-
-        <div class="w-[100vw] h-min-[100vh] bg-amber-100 flex flex-col justify-start text-center">
-
-                <header class="flex flex-row justify-evenly items-center w-[100vw] h-[10vw] bg-amber-200">
+<body class="bg-amber-100">                                
+        
+        <header class="flex flex-row justify-evenly items-center w-[100vw] h-[10vw] bg-amber-200">
                         
-                        <div class="w-[80vw]  flex flex-col justify-around">
+                <div class="w-[80vw]  flex flex-col justify-around">
                                 
-                                <p class="text-3xl">zia records</p>
+                        <p class="text-3xl">zia records</p>
+
+                        <div class="flex flex-row justify-evenly">
 
                                 <a href="./sign-up.html" class="">
 
@@ -26,142 +25,88 @@
 
                                 </a>
 
-                                <a href="./admin.html" class="">
+                                <a href="./home.html" class="">
 
-                                        sign-in
+                                        home
 
                                 </a>
-
+                        
                         </div>
 
-                        <a target="_blank" href="https://www.ziarecords.com/?gad_source=1&gad_campaignid=21176292604&gbraid=0AAAAADjjCGW6BWWsx5EPtVlvoghBpAOT3&gclid=CjwKCAjwisnGBhAXEiwA0zEOR24QfHqG6lH8Arstodevys8vTxxDr57x9RbnMGRvrsO_SaxH-Fqs8xoCzPQQAvD_BwE">
+                </div>
 
-                                <img src="./img/22b8e772-3f5b-49a8-855b-2a43259f3c91.png" alt="" class="w-[7vw] h-[7vw] hover:animate-pulse animate-spin">
+                <a target="_blank" href="https://www.ziarecords.com/?gad_source=1&gad_campaignid=21176292604&gbraid=0AAAAADjjCGW6BWWsx5EPtVlvoghBpAOT3&gclid=CjwKCAjwisnGBhAXEiwA0zEOR24QfHqG6lH8Arstodevys8vTxxDr57x9RbnMGRvrsO_SaxH-Fqs8xoCzPQQAvD_BwE">
 
-                        </a>
+                        <img src="./img/22b8e772-3f5b-49a8-855b-2a43259f3c91.png" alt="" class="w-[7vw] h-[7vw] hover:animate-pulse animate-spin">
 
-                </header>
+                </a>
 
-                <main class="flex flex-col justify-evenly items-center w-[100vw] h-min-[15vw] ">
+        </header>
 
-                        <section class="flex flex-row justify-evenly items-center w-[100vw] h-min-[15vw] m-5">
+        <main class="container w-[100vw]  flex flex-col justify-around text-center">
 
-                                <div id="text1" class="w-[50vw] h-min-[15vw] flex flex-row justify-around items-center">
+                <section class="h-auto p-5 flex justify-center">
 
-                                        <div class="w-0 h-10 m-5 border border-[2px] rounded-full"></div>
+                        <h1 class="bg-red-600 text-2xl p-3 px-10 border border-5 rounded-full text-center self-center hover:bg-lime-400">sign in</h1>
+                                                        
+                </section>
 
-                                        <div class="w-0 h-10 m-5 border border-[2px] rounded-full"></div>
+                <section class="card">
 
-                                        <div class="w-0 h-10 m-5 border border-[2px] rounded-full"></div>
+                        <form method="POST" action="/api/admin" id="sign-up">
 
-                                        <div class=" w-[15vw]">
+                                <div class="grid">
 
-                                                look at us we sell and buy records, cds, & casets. Also other items like comics, figures, and clothes
+                                        <label class="bg-amber-300 py-5 my-5 ">
                                                 
+                                                
+                                                First Name:
+
+                                                <input type="text" name="name" required class="border bg-amber-100 shadow-lg ">
+
+                                        </label>
+
+                                        <label class="bg-amber-300 py-5 my-5 ">
+                                                
+                                                password:
+
+                                                <input type="text" name="password" required class="border bg-amber-100 shadow-lg ">
+
+                                        </label>
+
+                                        <div class="bg-red-200 text-2xl p-3 px-10 border border-1 rounded-full text-center self-center hover:bg-red-800">
+
+                                                <div class="bg-orange-300 text-2xl p-3 px-10 border border-2 rounded-full text-center self-center hover:bg-orange-700">
+                                                
+                                                        <div class="bg-amber-400 text-2xl p-3 px-10 border border-3 rounded-full text-center self-center hover:bg-amber-600">
+
+                                                                <div class="bg-yellow-500 text-2xl p-3 px-10 border border-4 rounded-full text-center self-center hover:bg-yellow-500">
+                
+                                                                <button type="submit"  class="bg-lime-600 text-2xl p-3 px-10 border border-5 rounded-full text-center self-center hover:bg-lime-400">
+
+                                                                                submit form
+
+                                                                        </button>
+
+                                                                </div>
+
+                                                        </div>
+
+                                                        
+                                                </div>
+
                                         </div>
-
-                                </div>
-
-                                <div class="w-[50vw] h-min-[15vw] flex flex-row justify-around items-center">
-
-                                        <img src="./img/cage_aginst_the_machine.png" alt="" class="w-[15vw] h-[15vw]">
-
-                                        <div class="w-0 h-10 m-5 border border-[2px] rounded-full">
-
-                                        </div>
-
-                                        <div class="w-0 h-10 m-5 border border-[2px] rounded-full">
-
-                                        </div>
-
-                                         <div class="w-0 h-10 m-5 border border-[2px] rounded-full">
-
-                                        </div>
-
-                                </div>
-
-                        </section>
-
-                        <section class="flex flex-row justify-evenly items-center w-[100vw] h-min-[15vw] m-5">
-
-                                <div class="w-[50vw] h-min-[15vw] flex flex-row justify-around items-center">
-
-                                        <div class="w-0 h-10 m-5 border border-[2px] rounded-full"></div>
-
-                                        <div class="w-0 h-10 m-5 border border-[2px] rounded-full"></div>
-
-                                        <div class="w-0 h-10 m-5 border border-[2px] rounded-full"></div>
 
                                         
-                                        <img src="./img/PearlJam-Vs.jpg" alt="" class="w-[15vw] h-[15vw]">
+
 
                                 </div>
+                        
+                        </form>
+                
+                </section>
 
-                                <div id="text1" class="w-[50vw] h-min-[15vw] flex flex-row justify-around items-center">
-
-                                        <div class=" w-[15vw]">
-                                        
-                                                we'll give you money or store credets for your old records 
-                                        
-                                        </div>
-
-                                        <div class="w-0 h-10 m-5 border border-[2px] rounded-full"></div>
-
-                                        <div class="w-0 h-10 m-5 border border-[2px] rounded-full"></div>
-
-                                        <div class="w-0 h-10 m-5 border border-[2px] rounded-full"></div>
-
-                                </div>
-
-                        </section>
-
-                        <section class="flex flex-row justify-evenly items-center w-[100vw] h-min-[10vw] m-5">
-
-                                <div id="text1" class="w-[50vw] h-min-[10vw] flex flex-row justify-around items-center">
-
-                                        <div class="w-0 h-10 m-5 border border-[2px] rounded-full"></div>
-
-                                        <div class="w-0 h-10 m-5 border border-[2px] rounded-full"></div>
-
-                                        <div class="w-0 h-10 m-5 border border-[2px] rounded-full"></div>
-
-                                        <div class="w-[15vw]">
-                                        
-                                                if you like music we have the music for you
-                                        
-                                        </div>
-
-                                </div>
-
-                                <div class="w-[50vw] h-min-[10vw] flex flex-row justify-around items-center">
-
-                                        <img src="./img/jar_of_flies.jpg" alt="" class="w-[15vw] h-[15vw] ">
-
-                                        <div class="w-0 h-10 m-5 border border-[2px] rounded-full"></div>
-
-                                        <div class="w-0 h-10 m-5 border border-[2px] rounded-full"></div>
-
-                                        <div class="w-0 h-10 m-5 border border-[2px] rounded-full"></div>
-
-                                </div>
-
-                        </section>
-
-                </main>
-
-                <footer>
-
-                        <div class="flex flex-row justify-evenly items-center w-[100vw] h-min-[10vw] m-5" id="members">
-
-                                
-
-                        </div>
-
-                </footer>
-
-                <script src="./script.js"></script>
-
-        </div>
+        </main>
 
 </body>
 </html>
