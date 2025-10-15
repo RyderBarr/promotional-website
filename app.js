@@ -115,6 +115,8 @@ app.post("/api/members", async(req,res,next)=>
 
 })
 
+app.use("/img",express.static(path.join(__dirname,'img')))
+
 // admin
 app.use("/admin",(req,res)=>{
 
